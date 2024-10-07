@@ -1,0 +1,1 @@
+console.log("L'acces a la ruta c:\\usuari\tarda1'23, considerat una ,mica lent en l'actualitat");
