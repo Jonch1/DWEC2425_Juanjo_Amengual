@@ -1,14 +1,20 @@
-//Estructura de control while
+//Estructura de control do while
 
 let letra = "s";
 
 let intentos = 0;
 
-let respuesta = prompt("En que letra estoy pensando?");
+let respuesta = "";
 
 do {
-    intentos++;
-    respuesta = prompt("Vuelve a intentarlo :/")
+    respuesta = prompt("En que letra estoy pensando?")
     console.log("Mas suerte a la próxima :/");
+    intentos++;
 
-} while (respuesta != letra && intentos <10)
+} while (respuesta !== letra && intentos <9);
+
+if (respuesta === letra) {
+    alert("Enhorabuena crack!!!");
+} else {
+    alert("Mas suerte a la proxima")
+}
