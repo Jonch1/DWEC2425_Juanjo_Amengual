@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Representación de Esfera</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #canvas { background-color: #f0f0f0; border: 1px solid #ccc; }
+        .valores p {padding-top: 100%;}
+    </style>
+</head>
+<body>
+<h1>Representación de la Esfera</h1>
+<canvas id="canvas" width="400" height="400"></canvas>
+<script>
+    let Radio = prompt("¿Cuál quieres que sea el valor del radio?");
+    Radio = parseFloat(Radio);
+
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    // Cálculos de las propiedades de la esfera
+    let Diametro = Math.floor(Radio * 2);
+    let Perimetro = Math.floor(2 * Math.PI * Radio);
+    let AreaCirculo = Math.floor(Math.PI * Math.pow(Radio, 2));
+    let AreaEsfera = Math.floor(4 * Math.PI * Math.pow(Radio, 2));
+    let VolumenEsfera = Math.floor((4/3) * Math.PI * Math.pow(Radio, 3));
+
+    // Dibuja la esfera
+    function drawSphere() {
+        let centerX = canvas.width / 2;
+        let centerY = canvas.height / 2;
+
+        // Dibujar el círculo de la esfera
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, Radio, 0, 2 * Math.PI);
+        ctx.fillStyle = "lightblue";
+        ctx.fill();
+
+        // Crear un degradado para darle una apariencia 3D
+        let gradient = ctx.createRadialGradient(centerX - Radio / 4, centerY - Radio / 4, Radio / 8, centerX, centerY, Radio);
+        gradient.addColorStop(0, "white");
+        gradient.addColorStop(1, "blue");
+
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        ctx.strokeStyle = "black";
+        ctx.stroke();
+    }
+
+    drawSphere();
+</script>
+
+<!--Mostrar los resultados de los cálculos-->
+<br><br><p1>Diamtero: <script>document.write(Diametro)</script></p1><br>
+<p1>Perímetro: <script>document.write(Perimetro)</script></p1><br>
+<p1>Area del circulo: <script>document.write(AreaCirculo)</script></p1><br>
+<p1>Area de la esfera: <script>document.write(AreaEsfera)</script></p1><br>
+<p1>Volumen de la esfera: <script>document.write(VolumenEsfera)</script></p1>
+</body>
+</html>
