@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación Texto</title>
+</head>
+<body>
+<script>
+  // Función para validar el texto
+  function esValido(texto) {
+    // Patrón que permite solo letras, espacios y los signos de puntuación permitidos
+    const patron = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ \.,;:'"¿?¡!…\-]+$/;
+    return patron.test(texto);
+  }
+
+    while (true) {
+      const texto = prompt("Ingresa un párrafo con al menos 10 palabras:").trim();
+
+      if (!texto) {
+        alert("No se ingresó ningún texto. Inténtalo de nuevo.");
+        continue;
+      }
+
+      const palabras = texto.split(/\s+/);
+
+      if (palabras.length < 10) {
+        alert("El texto debe contener al menos 10 palabras. Inténtalo de nuevo.");
+        continue;
+      }
+
+      if (!esValido(texto)) {
+        alert("El texto contiene caracteres no permitidos. Solo se permiten letras, espacios y los signos de puntuación especificados. Inténtalo de nuevo.");
+        continue;
+      }
+
+        const letras = palabras.reduce((suma, palabra) => suma + palabra.length, 0);
+
+      alert("Texto válido. ¡Gracias! Has introducido un total de " + palabras.length + " palabras y " + letras + " letras");
+      break;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario_validaciones</title>
+</head>
+<body>
+
+<script>
+    var fecha = prompt("Introduce fecha:");
+    var fechaRGEX =  /^[0-9]{1,2}[/.]{1}[0-12]{1,2}[/.]{1}[0-9]{4}$/;
+    var fechaResult = fechaRGEX.test(fecha);
+
+        if (fechaResult === false) {
+            alert("La fecha introducida no es válida o está fuera de rango");
+            }else {
+            alert("La fecha introducida es correcta");
+        }
+
+</script>
+</body>
+</html>
